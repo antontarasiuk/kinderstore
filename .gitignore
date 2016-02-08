@@ -1,0 +1,13 @@
+.vs
+obj
+bin
+Debug
+Release
+*.opensdf
+*.sdf
+*.suo
+*.user
+*DotSettings
+*.dbmdl
+logs
+/packages/*.*
