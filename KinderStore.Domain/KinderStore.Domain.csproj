@@ -88,8 +88,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IProductRepository.cs" />
+    <Compile Include="Abstract\ProductRepository.cs" />
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="IoC\Container.cs" />
     <Compile Include="IoC\ContainerExtensions.cs" />
     <Compile Include="IoC\IContainer.cs" />

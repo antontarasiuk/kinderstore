@@ -1,4 +1,5 @@
-﻿using KinderStore.Domain.IoC;
+﻿using KinderStore.Domain.Abstract;
+using KinderStore.Domain.IoC;
 using KinderStore.Domain.Logging;
 
 namespace KinderStore.Domain
@@ -15,6 +16,8 @@ namespace KinderStore.Domain
 		private void Initialize()
 		{
 			container.RegisterType<ILogger, Log4NetLogger>(LifeTime.ContainerControlled);
+
+			container.RegisterType<IProductRepository, ProductRepository>();
 		}
 	}
 }
