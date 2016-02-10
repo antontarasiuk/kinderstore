@@ -1,0 +1,14 @@
+﻿@model KinderStore.Domain.Entities.Product
+
+<div class="well">
+    <h3>
+        <strong>@Model.Name</strong>
+        <span class="pull-right label label-primary">@Model.Price.ToString("# бел\\.руб\\.")</span>
+    </h3>
+    <img src="~/Images/@Model.Image" alt="Sample Photo" width="200" />
+    @*  <h3>@Model.Code</h3>
+        <h3>@Model.Size</h3>
+        <h3>@Model.Material</h3>
+        <h3>@Model.Category</h3>*@
+    @*<span class="lead">@Model.Description</span>*@
+</div>

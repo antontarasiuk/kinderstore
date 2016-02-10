@@ -18,11 +18,12 @@ namespace KinderStore.Web.Controllers
 			_repository = repository;
 		}
 
-		public ViewResult List(int page = 1)
+		public ViewResult List(string category, int page = 1)
 		{
 			ProductListViewModel model = new ProductListViewModel
 			{
 				Products = _repository.Products
+									  .Where(p => category == null || p.Category == category)
 									  .OrderBy(product => product.ProductId)
 									  .Skip((page - 1) * pageSize)
 									  .Take(pageSize),
@@ -31,8 +32,9 @@ namespace KinderStore.Web.Controllers
 				{
 					CurrentPage = page,
 					ItemsPerPage = pageSize,
-					TotalItems = _repository.Products.Count()
-				}
+					TotalItems = category == null ? _repository.Products.Count() : _repository.Products.Count(product => product.Category == category)
+				},
+				CurrentCategory = category
 			};
 
 			return View(model);
