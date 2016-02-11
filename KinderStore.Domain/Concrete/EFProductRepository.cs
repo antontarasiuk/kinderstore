@@ -22,6 +22,7 @@ namespace KinderStore.Domain.Concrete
 		{
 			if (product.ProductId == 0)
 			{
+				product.Created = DateTime.Now;
 				context.Products.Add(product);
 			}
 			else
@@ -33,7 +34,6 @@ namespace KinderStore.Domain.Concrete
 					dbEntry.Category = product.Category;
 					dbEntry.Code = product.Code;
 					dbEntry.Description = product.Description;
-					//dbEntry.Created = product.Created;
 					dbEntry.LastModified = DateTime.Now;
 					dbEntry.ImageData = product.ImageData;
 					dbEntry.ImageMimeType = product.ImageMimeType;
@@ -44,6 +44,17 @@ namespace KinderStore.Domain.Concrete
 				}
 			}
 			context.SaveChanges();
+		}
+
+		public Product DeleteProduct(int productId)
+		{
+			Product dbEntry = context.Products.Find(productId);
+			if (dbEntry != null)
+			{
+				context.Products.Remove(dbEntry);
+				context.SaveChanges();
+			}
+			return dbEntry;
 		}
 	}
 }

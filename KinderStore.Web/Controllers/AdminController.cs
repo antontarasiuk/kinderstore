@@ -22,7 +22,12 @@ namespace KinderStore.Web.Controllers
 		    return View(_repository.Products);
 	    }
 
-	    public ViewResult Edit(int productId)
+		public ViewResult Create()
+		{
+			return View("Edit", new Product());
+		}
+
+		public ViewResult Edit(int productId)
 	    {
 			Product product = _repository.Products
 				.FirstOrDefault(p => p.ProductId == productId);
@@ -49,6 +54,18 @@ namespace KinderStore.Web.Controllers
 				// Что-то не так со значениями данных
 				return View(product);
 			}
+		}
+
+		[HttpPost]
+		public ActionResult Delete(int productId)
+		{
+			Product deletedProduct = _repository.DeleteProduct(productId);
+			if (deletedProduct != null)
+			{
+				TempData["message"] = string.Format("Товар \"{0}\"  артикул \"{1}\" был удален",
+					deletedProduct.Name, deletedProduct.Code);
+			}
+			return RedirectToAction("Index");
 		}
 	}
 }

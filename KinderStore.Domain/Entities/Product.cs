@@ -19,22 +19,27 @@ namespace KinderStore.Domain.Entities
 		[Display(Name = "Последнее изменение")]
 		public DateTime? LastModified { get; set; }
 
-		[Display(Name = "наименование")]
+		[Display(Name = "Наименование")]
+		[Required(ErrorMessage = "Пожалуйста, введите название товара")]
 		public string Name { get; set; }
 
 		[Display(Name = "Артикул")]
+		[Required(ErrorMessage = "Пожалуйста, введите артикул товара")]
 		public string Code { get; set; }
 
 		[Display(Name = "Размеры")]
 		public string Size { get; set; }
 
 		[Display(Name = "Материал")]
+		[Required(ErrorMessage = "Пожалуйста, введите материал товара")]
 		public string Material { get; set; }
 
+		[DataType(DataType.MultilineText)]
 		[Display(Name = "Описание")]
 		public string Description { get; set; }
 
 		[Display(Name = "Категория/Группа товаров")]
+		[Required(ErrorMessage = "Пожалуйста, введите категорию/группу товара")]
 		public string Category { get; set; }
 
 		[Display(Name = "Цена")]
@@ -47,6 +52,7 @@ namespace KinderStore.Domain.Entities
 		public string ImageMimeType { get; set; }
 
 		[Display(Name = "Доступность")]
+		[Required(ErrorMessage = "Пожалуйста, укажите доступность товара: True(Доступен) или False(Не доступен)")]
 		public bool IsAvailable { get; set; }
 	}
 }
