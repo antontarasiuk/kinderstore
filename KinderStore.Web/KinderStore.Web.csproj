@@ -117,11 +117,14 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\ContainerControllerFactory.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +150,8 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Shared\ProductSummary.cshtml" />
     <Content Include="Views\Nav\Menu.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

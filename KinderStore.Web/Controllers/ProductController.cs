@@ -11,7 +11,7 @@ namespace KinderStore.Web.Controllers
 	public class ProductController : Controller
 	{
 		private IProductRepository _repository;
-		public int pageSize = 2;
+		public int pageSize = 5;
 
 		public ProductController(IProductRepository repository)
 		{
