@@ -21,12 +21,11 @@
                 <th class="text-center">Материал</th>
                 <th class="text-center">Описание</th>
                 <th class="text-center">Цена</th>
-                <th class="text-center">Имя изображения</th>
                 <th class="text-center"></th>
                 <th class="text-center">Наличие</th>
                 <th class="text-center"></th>
-                <th class="text-center">Создано</th>
                 <th class="text-center">Последнее изменение</th>
+                <th class="text-center">Создано</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -41,7 +40,7 @@
                     <td class="text-left">@item.Material</td>
                     <td class="text-left">@item.Description</td>
                     <td class="text-right">@item.Price.ToString("# бел\\.руб\\.")</td>
-                    <td class="text-right">@item.Image</td>
+                    <!--<td class="text-right">@item.Image</td>-->
                     <td class="text-center"><img src="~/Images/@item.Image" alt="Sample Photo" width="50"/></td>
                     <!--<td class="text-right">@item.IsAvailable</td>-->
                     <td class="text-center">@Html.DisplayFor(modelItem => item.IsAvailable)</td>
@@ -54,8 +53,8 @@
                                    value="Удалить"/>
                         }
                     </td>
-                    <td class="text-right">@item.Created</td>
                     <td class="text-right">@item.LastModified</td>
+                    <td class="text-right">@item.Created</td>
                 </tr>
              }
         </table>
