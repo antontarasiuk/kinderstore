@@ -20,7 +20,7 @@
                 <th class="text-center">Размеры</th>
                 <th class="text-center">Материал</th>
                 <th class="text-center">Описание</th>
-                <th class="text-center">Цена</th>
+                <th class="text-center">Цена, бел.руб.</th>
                 <th class="text-center"></th>
                 <th class="text-center">Наличие</th>
                 <th class="text-center"></th>
@@ -39,9 +39,17 @@
                     <td class="text-right">@item.Size</td>
                     <td class="text-left">@item.Material</td>
                     <td class="text-left">@item.Description</td>
-                    <td class="text-right">@item.Price.ToString("# бел\\.руб\\.")</td>
-                    <!--<td class="text-right">@item.Image</td>-->
-                    <td class="text-center"><img src="~/Images/@item.Image" alt="Sample Photo" width="50" /></td>
+                    <td class="text-right">@item.Price</td>
+                    <td class="text-center">
+                        @if (item.ImageData != null)
+                        {
+                            <img class="img-thumbnail" width="75" height="75" src="@Url.Action("GetImage", "Product", new {item.ProductId})"/>
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" width="50" height="50" src="~/Images/no_image.jpg" />
+                        }
+                    </td>
                     <!--<td class="text-right">@item.IsAvailable</td>-->
                     <td class="text-center">@Html.DisplayFor(modelItem => item.IsAvailable)</td>
                     <td class="text-center">

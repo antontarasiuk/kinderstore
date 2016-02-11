@@ -3,12 +3,27 @@
 <div class="well">
     <h3>
         <strong>@Model.Name</strong>
-        <span class="pull-right label label-primary">@Model.Price.ToString("# бел\\.руб\\.")</span>
+        @if (@Model.Price!=0)
+        {
+            <span class="pull-right label label-primary">@Model.Price.ToString("# бел\\.руб\\.")</span>
+        }
     </h3>
-    <img src="~/Images/@Model.Image" alt="Sample Photo" width="200" />
+    @if (Model.ImageData != null)
+    {
+        //<div class="pull-left" style="margin-right: 10px">
+        <img class="img-thumbnail" width="250" height="250"
+             src="@Url.Action("GetImage", "Product",
+                      new {Model.ProductId})"/>
+    }
+    else
+    {
+        <img class="img-thumbnail" width="250" height="250"
+             src="~/Images/no_image-250x250.jpg" />
+    }
+    <h4 class="text-left">Материал: @Model.Material</h4>
+    <span class="lead">@Model.Description</span>
     @*  <h3>@Model.Code</h3>
         <h3>@Model.Size</h3>
         <h3>@Model.Material</h3>
-        <h3>@Model.Category</h3>*@
     @*<span class="lead">@Model.Description</span>*@
 </div>

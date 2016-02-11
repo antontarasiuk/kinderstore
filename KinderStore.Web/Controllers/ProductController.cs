@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using KinderStore.Domain.Abstract;
+using KinderStore.Domain.Entities;
 using KinderStore.Web.Models;
 
 namespace KinderStore.Web.Controllers
@@ -38,6 +39,21 @@ namespace KinderStore.Web.Controllers
 			};
 
 			return View(model);
+		}
+
+		public FileContentResult GetImage(int productId)
+		{
+			Product product = _repository.Products
+				.FirstOrDefault(p => p.ProductId == productId);
+
+			if (product?.ImageData != null)
+			{
+				return File(product.ImageData, product.ImageMimeType);
+			}
+			else
+			{
+				return null;
+			}
 		}
 	}
 }

@@ -13,7 +13,7 @@
     </div>
 
     @using (Html.BeginForm("Edit", "Admin",
-                FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.ProductId)
@@ -35,13 +35,13 @@
                             @if (property.PropertyName == "Description")
                             {
                                 @Html.TextArea(property.PropertyName, null,
-                                    new { @class = "form-control", rows = 5 })
-}
+                                    new {@class = "form-control", rows = 5})
+                            }
                             else
                             {
                                 @Html.TextBox(property.PropertyName, null,
-                                    new { @class = "form-control" })
-}
+                                    new {@class = "form-control"})
+                            }
                             @Html.ValidationMessage(property.PropertyName)
                         </div>break;
                 }

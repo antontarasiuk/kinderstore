@@ -35,8 +35,8 @@ namespace KinderStore.Domain.Concrete
 					dbEntry.Code = product.Code;
 					dbEntry.Description = product.Description;
 					dbEntry.LastModified = DateTime.Now;
-					dbEntry.ImageData = product.ImageData;
-					dbEntry.ImageMimeType = product.ImageMimeType;
+					dbEntry.ImageData = product.ImageData ?? dbEntry.ImageData;
+					dbEntry.ImageMimeType = product.ImageMimeType ?? dbEntry.ImageMimeType;
 					dbEntry.IsAvailable = product.IsAvailable;
 					dbEntry.Material = product.Material;
 					dbEntry.Price = product.Price;
