@@ -45,8 +45,6 @@ namespace KinderStore.Domain.Entities
 		[Display(Name = "Цена")]
 		public decimal Price { get; set; }
 
-		public string Image { get; set; }
-
 		public byte[] ImageData { get; set; }
 
 		public string ImageMimeType { get; set; }
