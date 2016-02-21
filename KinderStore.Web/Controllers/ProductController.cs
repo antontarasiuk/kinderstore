@@ -24,7 +24,7 @@ namespace KinderStore.Web.Controllers
 			ProductListViewModel model = new ProductListViewModel
 			{
 				Products = _repository.Products
-									  .Where(p => category == null || p.Category == category)
+									  .Where(p => category == null || p.Category.Contains(category))
 									  .OrderBy(product => product.ProductId)
 									  .Skip((page - 1) * pageSize)
 									  .Take(pageSize),

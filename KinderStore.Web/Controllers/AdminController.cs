@@ -8,7 +8,8 @@ using KinderStore.Domain.Entities;
 
 namespace KinderStore.Web.Controllers
 {
-    public class AdminController : Controller
+	[Authorize]
+	public class AdminController : Controller
     {
 	    private IProductRepository _repository;
 

@@ -8,6 +8,8 @@ using KinderStore.Domain.Abstract;
 using KinderStore.Domain.Concrete;
 using KinderStore.Domain.Entities;
 using KinderStore.Domain.IoC;
+using KinderStore.Web.Abstract;
+using KinderStore.Web.Concrete;
 using Moq;
 
 namespace KinderStore.Web.Application
@@ -37,6 +39,9 @@ namespace KinderStore.Web.Application
 			//	new Product { Name = "Крестильный набор", Price=80000 }
 			//});
 			//container.RegisterInstance<IProductRepository>(mock.Object);
+
+			container.RegisterType<IAuthProvider, FormAuthProvider>();
+
 		}
 	}
 }

@@ -11,3 +11,5 @@ Release
 *.dbmdl
 logs
 /packages/*.*
+*.mdf
+*.ldf
